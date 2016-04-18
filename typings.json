@@ -1,0 +1,22 @@
+{
+  "ambientDependencies": {
+    "gulp": "registry:dt/gulp#3.8.0+20160316155526",
+    "gulp-debug": "registry:dt/gulp-debug#2.0.1+20160316155526",
+    "gulp-if": "registry:dt/gulp-if#0.0.0+20160316155526",
+    "gulp-load-plugins": "registry:dt/gulp-load-plugins#0.0.0+20160316155526",
+    "gulp-task-listing": "registry:dt/gulp-task-listing#0.0.0+20160316155526",
+    "gulp-util": "registry:dt/gulp-util#3.0.0+20141016163602",
+    "node": "registry:dt/node#4.0.0+20160412142033",
+    "react": "registry:dt/react#0.14.0+20160412154040",
+    "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
+    "react-global": "registry:dt/react-global#0.14.0+20160316155526",
+    "webpack": "registry:dt/webpack#1.12.9+20160321060707",
+    "webpack-env": "registry:dt/webpack-env#1.12.2+20160316155526"
+  },
+  "dependencies": {
+    "del": "registry:npm/del#2.2.0+20160416211512",
+    "gulp": "registry:npm/gulp#3.8.0+20160211003958",
+    "webpack": "registry:npm/webpack#1.12.9+20160219013405",
+    "yargs": "registry:npm/yargs#3.31.0+20160316010718"
+  }
+}

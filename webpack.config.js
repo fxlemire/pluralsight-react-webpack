@@ -1,11 +1,7 @@
 'use strict'; // eslint-disable-line strict
+const config = require('./gulp.config');
 const path = require('path');
 const webpack = require('webpack');
-
-const config = {
-  client: './src/client/',
-  public: '/public/'
-};
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -18,8 +14,8 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, config.public),
-    publicPath: config.public
+    path: path.join(__dirname, config.build),
+    publicPath: config.build.slice(1) // eslint-disable-line no-magic-numbers
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -36,6 +32,18 @@ module.exports = {
         test: /\.scss$/,
         include: path.join(__dirname, config.client),
         loader: 'style!css!sass'
+      },
+      {
+        test: /\.spec.js$/,
+        include: path.join(__dirname, './test/'),
+        loader: 'babel'
+      }
+    ],
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        include: path.join(__dirname, './src/client/'),
+        loader: 'isparta'
       }
     ]
   }

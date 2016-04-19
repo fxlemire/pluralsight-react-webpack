@@ -8,5 +8,7 @@ module.exports = {
     react: `${client}**/*.jsx`,
     plain: `${client}**/*.js`
   },
-  sass: `${client}**/*.s+(a|c)ss`
+  sass: `${client}**/*.s+(a|c)ss`,
+  server: './server.js',
+  test: './test/'
 };

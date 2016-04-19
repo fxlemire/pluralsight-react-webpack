@@ -2,10 +2,12 @@ const args = require('yargs').argv;
 const config = require('./gulp.config');
 const del = require('del');
 const gulp = require('gulp');
+const karma = require('karma');
 const $ = require('gulp-load-plugins')({lazy: true});
 // const eslint = require('gulp-eslint');
 // const debug = require('gulp-debug');
 // const if = require('gulp-if');
+// const nodemon = require('gulp-nodemon');
 // const print = require('gulp-print');
 // const sassLint = require('gulp-sass-lint');
 // const taskListing = require('gulp-task-listing');
@@ -38,6 +40,24 @@ gulp.task('lint-sass', () => {
     .pipe($.sassLint({'config-file': './.sass-lint.yml'}))
     .pipe($.sassLint.format())
     .pipe($.sassLint.failOnError());
+});
+
+gulp.task('server', () => {
+  $.nodemon({script: config.server});
+});
+
+gulp.task('test', ['lint'], done => {
+  const server = new karma.Server({configFile: `${__dirname}/karma.conf.js`}, exitCode => {
+    if (exitCode !== 0) {
+      return done(`Karma: tests failed with code ${exitCode}`);
+    }
+
+    log('Karma: tests completed successfully');
+
+    return done();
+  });
+
+  server.start();
 });
 
 /************************

@@ -18,7 +18,7 @@ Pluralsight React Webpack
 * Add `localhost` to the extension's settings (Chrome settings --> More tools --> Extensions)
 
 ## Launch Website
-* `node server`
+* `gulp server`
 
 ## Persisting Changes Made Within Chrome
 * More Tools --> Developer Tools
@@ -27,5 +27,4 @@ Pluralsight React Webpack
 * Mappings: http://localhost:8080/src/client --> `/`
 
 # Testing
-* In a separate console: `gulp serve-build`
-* In the main console: `npm test` (or `gulp test-e2e`)
+* `npm test` or `gulp test`

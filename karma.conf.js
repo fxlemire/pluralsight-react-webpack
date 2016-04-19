@@ -1,4 +1,13 @@
+const path = require('path');
 const webpackConfig = require('./webpack.config');
+
+webpackConfig.module.preLoaders = [
+  {
+    test: /\.jsx?$/,
+    include: path.join(__dirname, './src/client/'),
+    loader: 'isparta'
+  }
+];
 
 module.exports = config => {
   config.set({

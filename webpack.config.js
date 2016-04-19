@@ -38,13 +38,6 @@ module.exports = {
         include: path.join(__dirname, './test/'),
         loader: 'babel'
       }
-    ],
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        include: path.join(__dirname, './src/client/'),
-        loader: 'isparta'
-      }
     ]
   }
 };

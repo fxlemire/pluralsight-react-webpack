@@ -10,24 +10,29 @@ class MessageList extends React.Component {
     super(props);
 
     this.state = {
-      messages: []
+      messages: {}
     };
 
     const firebaseRef = new Firebase('https://pluralsight-react-webpack.firebaseio.com/messages');
 
-    firebaseRef.once('value', dataSnapshot => {
-      const messagesVal = dataSnapshot.val();
-      const messages = _(messagesVal)
-        .keys()
-        .map(messageKey => {
-          const clonedMessageObject = _.clone(messagesVal[messageKey]);
+    firebaseRef.on('child_added', message => {
+      if (this.state.messages[message.key()]) {
+        return;
+      }
 
-          clonedMessageObject.key = messageKey;
+      const messages = this.state.messages;
+      const messageValue = message.val();
 
-          return clonedMessageObject;
-        })
-        .value();
+      messageValue.key = message.key();
+      messages[messageValue.key] = messageValue;
+      this.setState({messages});
+    });
 
+    firebaseRef.on('child_removed', message => {
+      const key = message.key();
+      const messages = this.state.messages;
+
+      Reflect.deleteProperty(messages, key);
       this.setState({messages});
     });
 
@@ -35,7 +40,7 @@ class MessageList extends React.Component {
   }
 
   render() {
-    const messageNodes = this.state.messages.map(m => <Message key={m.key} message={m.message} profilePic={m.profilePic} />);
+    const messageNodes = _.values(this.state.messages).map(m => <Message key={m.key} message={m.message} profilePic={m.profilePic} />);
 
     return (
       <Card className="message-list">

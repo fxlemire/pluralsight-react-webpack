@@ -46,6 +46,7 @@
     "gulp-task-listing": "^1.0.1",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
+    "image-webpack-loader": "^1.7.0",
     "isparta-loader": "^2.0.0",
     "istanbul": "^0.4.3",
     "karma": "^0.13.22",

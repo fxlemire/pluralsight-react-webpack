@@ -1,0 +1,16 @@
+{
+  "messages": {
+    "0": {
+      "message": "Hi there, how are you?",
+      "date": "Wed, 20 Apr 2016 14:20:24 EST",
+      "author": "Francois-Xavier Lemire",
+      "profilePic": "http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/3a/3a6f89611e81be8b536135047482856e002ca0d4_full.jpg"
+    },
+    "1": {
+      "message": "I am fine, and you?",
+      "date": "Wed, 20 Apr 2016 14:23:49 EST",
+      "author": "Victor Bui",
+      "profilePic": "http://res.cloudinary.com/urbandictionary/image/upload/a_exif,c_fit,h_200,w_200/v1417872112/wcca0wzxkbnmstnckkxq.jpg"
+    }
+  }
+}

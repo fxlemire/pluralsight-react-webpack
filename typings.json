@@ -1,5 +1,6 @@
 {
   "ambientDependencies": {
+    "firebase": "registry:dt/firebase#2.4.1+20160412125105",
     "gulp": "registry:dt/gulp#3.8.0+20160316155526",
     "gulp-debug": "registry:dt/gulp-debug#2.0.1+20160316155526",
     "gulp-if": "registry:dt/gulp-if#0.0.0+20160316155526",
@@ -29,6 +30,7 @@
     "chai-as-promised": "registry:npm/chai-as-promised#5.1.0+20160310030142",
     "del": "registry:npm/del#2.2.0+20160416211512",
     "gulp": "registry:npm/gulp#3.8.0+20160211003958",
+    "lodash": "registry:npm/lodash#4.0.0+20160416211519",
     "sinon": "registry:npm/sinon#1.16.0+20160309002336",
     "sinon-chai": "registry:npm/sinon-chai#2.8.0+20160310030142",
     "webpack": "registry:npm/webpack#1.12.9+20160219013405",

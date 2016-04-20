@@ -1,4 +1,5 @@
 import Card from 'material-ui/Card';
+import Firebase from 'firebase';
 import List from 'material-ui/List';
 import Message from './Message.jsx';
 import React from 'react';
@@ -6,17 +7,24 @@ import React from 'react';
 class MessageList extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      messages: [
-        'hi there, how are you?',
-        'I am fine, and you?'
-      ]
+      messages: []
     };
+
+    const firebaseRef = new Firebase('https://pluralsight-react-webpack.firebaseio.com/messages');
+
+    firebaseRef.once('value', dataSnapshot => {
+      const messages = dataSnapshot.val();
+
+      this.setState({messages});
+    });
+
+    this.firebaseRef = firebaseRef;
   }
 
   render() {
-    let key = 0;
-    const messageNodes = this.state.messages.map(m => <Message key={key++} message={m} />);
+    const messageNodes = this.state.messages.map((m, index) => <Message key={index} message={m.message} profilePic={m.profilePic} />);
 
     return (
       <Card className="message-list">

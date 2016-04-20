@@ -1,13 +1,12 @@
 import Avatar from 'material-ui/Avatar';
 import ListItem from 'material-ui/List/ListItem';
 import React from 'react';
-import littleMac from '../images/punchout_littlemac.gif';
 
 class Message extends React.Component {
   render() {
     return (
       <ListItem
-        leftAvatar={<Avatar src={littleMac}/>}>
+        leftAvatar={<Avatar src={this.props.profilePic}/>}>
         {this.props.message}
       </ListItem>
     );
@@ -15,7 +14,8 @@ class Message extends React.Component {
 }
 
 Message.propTypes = {
-  message: React.PropTypes.string
+  message: React.PropTypes.string,
+  profilePic: React.PropTypes.string
 };
 
 export default Message;

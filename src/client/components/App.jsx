@@ -1,21 +1,32 @@
+import {getMuiTheme, lightBaseTheme} from 'material-ui/styles';
+import AppBar from 'material-ui/AppBar';
+import ChannelList from './ChannelList.jsx';
+import MessageBox from './MessageBox.jsx';
+import MessageList from './MessageList.jsx';
 import React from 'react';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      messages: [
-        'hi there, how are you?',
-        'I am fine, and you?'
-      ]
+  static childContextTypes = {
+    muiTheme: React.PropTypes.object
+  };
+
+  getChildContext() {
+    return {
+      muiTheme: getMuiTheme(lightBaseTheme)
     };
   }
 
   render() {
-    let key = 0;
-    const messageNodes = this.state.messages.map(m => <div key={key++}>{m}</div>);
-
-    return (<div>{messageNodes}</div>);
+    return (
+      <div>
+        <AppBar title="Awesome Chat App" />
+        <div className="app-container">
+          <ChannelList />
+          <MessageList />
+        </div>
+        <MessageBox />
+      </div>
+    );
   }
 }
 

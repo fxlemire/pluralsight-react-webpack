@@ -3,6 +3,7 @@ import Firebase from 'firebase';
 import List from 'material-ui/List';
 import Message from './Message.jsx';
 import React from 'react';
+import _ from 'lodash';
 
 class MessageList extends React.Component {
   constructor(props) {
@@ -15,7 +16,17 @@ class MessageList extends React.Component {
     const firebaseRef = new Firebase('https://pluralsight-react-webpack.firebaseio.com/messages');
 
     firebaseRef.once('value', dataSnapshot => {
-      const messages = dataSnapshot.val();
+      const messagesVal = dataSnapshot.val();
+      const messages = _(messagesVal)
+        .keys()
+        .map(messageKey => {
+          const clonedMessageObject = _.clone(messagesVal[messageKey]);
+
+          clonedMessageObject.key = messageKey;
+
+          return clonedMessageObject;
+        })
+        .value();
 
       this.setState({messages});
     });
@@ -24,7 +35,7 @@ class MessageList extends React.Component {
   }
 
   render() {
-    const messageNodes = this.state.messages.map((m, index) => <Message key={index} message={m.message} profilePic={m.profilePic} />);
+    const messageNodes = this.state.messages.map(m => <Message key={m.key} message={m.message} profilePic={m.profilePic} />);
 
     return (
       <Card className="message-list">

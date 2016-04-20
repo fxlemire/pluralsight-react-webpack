@@ -12,6 +12,7 @@ Pluralsight React Webpack
 ## VS Code Users
 * `npm install -g typings`
 * `typings install`
+* Install ESLint extension
 
 ## Blocking Yourself From Google Analytics
 * Download the [*Block Yourself From Analytics*](https://chrome.google.com/webstore/detail/block-yourself-from-analy/fadgflmigmogfionelcpalhohefbnehm?hl=en) extension

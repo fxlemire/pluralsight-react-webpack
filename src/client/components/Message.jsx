@@ -1,5 +1,5 @@
 import Avatar from 'material-ui/Avatar';
-import {ListItem} from 'material-ui/List';
+import ListItem from 'material-ui/List/ListItem';
 import React from 'react';
 import littleMac from '../images/punchout_littlemac.gif';
 

@@ -1,9 +1,10 @@
-import {getMuiTheme, lightBaseTheme} from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import ChannelList from './ChannelList.jsx';
 import MessageBox from './MessageBox.jsx';
 import MessageList from './MessageList.jsx';
 import React from 'react';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 class App extends React.Component {
   static childContextTypes = {

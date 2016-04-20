@@ -3,6 +3,11 @@ import ListItem from 'material-ui/List/ListItem';
 import React from 'react';
 
 class Message extends React.Component {
+  static propTypes = {
+    message: React.PropTypes.string,
+    profilePic: React.PropTypes.string
+  };
+
   render() {
     return (
       <ListItem
@@ -12,10 +17,5 @@ class Message extends React.Component {
     );
   }
 }
-
-Message.propTypes = {
-  message: React.PropTypes.string,
-  profilePic: React.PropTypes.string
-};
 
 export default Message;

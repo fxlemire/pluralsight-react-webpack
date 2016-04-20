@@ -1,0 +1,38 @@
+{
+	// See http://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "0.1.0",
+	"command": "gulp",
+	"isShellCommand": true,
+	"args": [
+		"--no-color"
+	],
+	"tasks": [
+		{
+			"taskName": "lint-sass-watch",
+			"suppressTaskName": true,
+			"args": ["lint-sass", "--watch"],
+			"isBuildCommand": false,
+			"isWatching": true,
+			"problemMatcher": {
+				"owner": "sass-lint",
+				"fileLocation": ["relative", "${workspaceRoot}"],
+				"pattern": [
+					{
+						"regexp": "^([^\\s].*)$",
+						"file": 1
+					},
+					{
+						"regexp": "^\\s*(\\d+):(\\d+)\\s+(warning|error)\\s+(.*)\\s\\s+(.*)$",
+						"line": 1,
+						"column": 2,
+						"severity": 3,
+						"message": 4,
+						"code": 5,
+						"loop": true
+					}
+				]
+			}
+		}
+	]
+}

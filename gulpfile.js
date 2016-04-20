@@ -1,3 +1,4 @@
+'use strict'; // eslint-disable-line strict
 const args = require('yargs').argv;
 const config = require('./gulp.config');
 const del = require('del');
@@ -8,9 +9,11 @@ const $ = require('gulp-load-plugins')({lazy: true});
 // const debug = require('gulp-debug');
 // const if = require('gulp-if');
 // const nodemon = require('gulp-nodemon');
+// const plumber = require('gulp-plumber');
 // const print = require('gulp-print');
 // const sassLint = require('gulp-sass-lint');
 // const taskListing = require('gulp-task-listing');
+// const watch = require('gulp-watch');
 
 gulp.task('help', $.taskListing);
 
@@ -35,8 +38,13 @@ gulp.task('lint-js', () => {
 gulp.task('lint-sass', () => {
   log('SASSLinting...');
 
-  return gulp
-    .src(config.sass)
+  let src = gulp.src(config.sass);
+
+  if (args.watch) {
+    src = src.pipe($.watch(config.sass)).pipe($.plumber());
+  }
+
+  return src
     .pipe($.sassLint({'config-file': './.sass-lint.yml'}))
     .pipe($.sassLint.format())
     .pipe($.sassLint.failOnError());

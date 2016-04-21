@@ -40,7 +40,7 @@ module.exports = config => {
     exclude: [],
 
     // list of files / patterns to load in the browser
-    files: ['tests.webpack.js'],
+    files: ['test/unit/init.spec.js', 'tests.webpack.js'],
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter

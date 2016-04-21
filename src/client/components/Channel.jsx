@@ -1,5 +1,6 @@
 import * as colors from 'material-ui/styles/colors';
 import Actions from '../actions';
+import {Link} from 'react-router';
 import ListItem from 'material-ui/List/ListItem';
 import React from 'react';
 
@@ -20,7 +21,9 @@ class Channel extends React.Component {
     }
 
     return (
-      <ListItem style={style} onClick={this.onClick.bind(this)}>{this.props.channel.name}</ListItem>
+      <Link to={`/chat/${this.props.channel.key}`} style={{textDecoration: 'none'}}>
+        <ListItem style={style}>{this.props.channel.name}</ListItem>
+      </Link>
     );
   }
 }

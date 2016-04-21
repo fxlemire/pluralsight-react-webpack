@@ -11,7 +11,7 @@ class Channel extends React.Component {
     const style = {};
 
     if (this.props.channel.selected) {
-      style.backgroundColor = colors.grey50;
+      style.backgroundColor = colors.grey100;
     }
 
     return (

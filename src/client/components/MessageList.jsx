@@ -33,7 +33,7 @@ class MessageList extends React.Component {
   render() {
     const messageNodes = this.props.messagesLoading
       ? <CircularProgress mode="indeterminate" className="wait-progress" />
-      : _.values(this.props.messages).map(m => <Message key={m.key} message={m.message} profilePic={m.profilePic} />);
+      : _.values(this.props.messages).map(m => <Message key={m.key} message={m} />);
 
     return (
       <Card className="message-list">

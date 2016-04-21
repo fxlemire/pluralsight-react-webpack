@@ -4,12 +4,16 @@ import alt from '../alt';
 class Actions {
   constructor() {
     this.generateActions(
+      'channelOpened',
       'channelsReceived',
       'channelsFailed',
-      'messagesReceived',
+      'messageReceived',
       'messagesFailed',
-      'channelOpened',
-      'messagesLoading'
+      'messagesReceived',
+      'messagesLoading',
+      'sendMessage',
+      'sendMessageSuccess',
+      'sendMessageError'
     );
   }
 

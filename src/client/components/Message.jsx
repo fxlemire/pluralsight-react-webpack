@@ -4,15 +4,14 @@ import React from 'react';
 
 class Message extends React.Component {
   static propTypes = {
-    message: React.PropTypes.string,
-    profilePic: React.PropTypes.string
+    message: React.PropTypes.object
   };
 
   render() {
     return (
       <ListItem
-        leftAvatar={<Avatar src={this.props.profilePic}/>}>
-        {this.props.message}
+        leftAvatar={<Avatar src={this.props.message.profilePic}/>}>
+        {this.props.message.message}
       </ListItem>
     );
   }

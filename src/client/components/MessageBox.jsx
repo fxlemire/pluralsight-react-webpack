@@ -1,5 +1,5 @@
+import Actions from '../actions';
 import Card from 'material-ui/Card';
-import Firebase from 'firebase';
 import React from 'react';
 import trim from 'trim';
 
@@ -10,8 +10,6 @@ class MessageBox extends React.Component {
     this.state = {
       message: ''
     };
-
-    this.firebaseRef = new Firebase('https://pluralsight-react-webpack.firebaseio.com/messages');
   }
 
   onChange(event) {
@@ -26,7 +24,7 @@ class MessageBox extends React.Component {
     if (event.keyCode === RETURN_KEY_CODE && trim(event.target.value) !== '') {
       event.preventDefault();
 
-      this.firebaseRef.push({message: this.state.message});
+      Actions.sendMessage(this.state.message);
 
       this.setState({
         message: ''

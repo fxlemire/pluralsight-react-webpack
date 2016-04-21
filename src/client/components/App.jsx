@@ -1,10 +1,8 @@
 import * as colors from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
-import ChannelList from './ChannelList.jsx';
+import Chat from './Chat.jsx';
 import ChatStore from '../stores/ChatStore';
 import Login from './Login.jsx';
-import MessageBox from './MessageBox.jsx';
-import MessageList from './MessageList.jsx';
 import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -40,19 +38,7 @@ class App extends React.Component {
   }
 
   render() {
-    let view = <Login />;
-
-    if (this.props.user) {
-      view = (
-        <div>
-          <div className="app-container">
-            <ChannelList />
-            <MessageList />
-          </div>
-          <MessageBox />
-        </div>
-      );
-    }
+    const view = this.props.user ? <Chat /> : <Login />;
 
     return (
       <div>

@@ -8,7 +8,7 @@ class Chat extends React.Component {
     return (
       <div>
         <div className="app-container">
-          <ChannelList />
+          <ChannelList {...this.props}/>
           <MessageList />
         </div>
         <MessageBox />

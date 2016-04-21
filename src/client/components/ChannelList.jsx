@@ -9,11 +9,6 @@ import connectToStores from 'alt-utils/lib/connectToStores';
 
 @connectToStores
 class ChannelList extends React.Component {
-  constructor(props) {
-    super(props);
-    ChatStore.getChannels();
-  }
-
   static getStores() {
     return [ChatStore];
   }
@@ -23,8 +18,21 @@ class ChannelList extends React.Component {
   }
 
   static propTypes = {
-    channels: React.PropTypes.object
+    channels: React.PropTypes.object,
+    params: React.PropTypes.object
   };
+
+  componentDidMount() {
+    this.selectedChannel = this.props.params.channel;
+    ChatStore.getChannels(this.selectedChannel);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.selectedChannel !== nextProps.params.channel) {
+      this.selectedChannel = nextProps.params.channel;
+      ChatStore.getChannels(this.selectedChannel);
+    }
+  }
 
   render() {
     if (!this.props.channels) {

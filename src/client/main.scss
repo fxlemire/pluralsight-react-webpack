@@ -12,6 +12,14 @@ body {
 
 .channel-list { flex-grow: 1; }
 
+.login-card {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 50px;
+}
+
+.login-text {text-align: center;}
+
 .message-box {
   max-width: 1200px;
   margin: 30px auto;
@@ -32,4 +40,13 @@ body {
 .message-list {
   flex-grow: 2;
   margin-left: 30px;
+}
+
+.wait-card {flex-grow: 1}
+
+.wait-progress {
+  display: block;
+  width: 60px;
+  margin: 0 auto;
+  padding: 20px 0;
 }

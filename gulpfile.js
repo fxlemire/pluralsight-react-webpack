@@ -50,7 +50,7 @@ gulp.task('lint-sass', () => {
     .pipe($.sassLint.failOnError());
 });
 
-gulp.task('server', () => {
+gulp.task('serve', () => {
   $.nodemon({script: config.server});
 });
 

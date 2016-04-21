@@ -1,10 +1,13 @@
 import Card from 'material-ui/Card';
-import Firebase from 'firebase';
+import ChatStore from '../stores/ChatStore';
+import CircularProgress from 'material-ui/CircularProgress';
 import List from 'material-ui/List';
 import Message from './Message.jsx';
 import React from 'react';
 import _ from 'lodash';
+import connectToStores from 'alt-utils/lib/connectToStores';
 
+@connectToStores
 class MessageList extends React.Component {
   constructor(props) {
     super(props);
@@ -12,35 +15,25 @@ class MessageList extends React.Component {
     this.state = {
       messages: {}
     };
-
-    const firebaseRef = new Firebase('https://pluralsight-react-webpack.firebaseio.com/messages');
-
-    firebaseRef.on('child_added', message => {
-      if (this.state.messages[message.key()]) {
-        return;
-      }
-
-      const messages = this.state.messages;
-      const messageValue = message.val();
-
-      messageValue.key = message.key();
-      messages[messageValue.key] = messageValue;
-      this.setState({messages});
-    });
-
-    firebaseRef.on('child_removed', message => {
-      const key = message.key();
-      const messages = this.state.messages;
-
-      Reflect.deleteProperty(messages, key);
-      this.setState({messages});
-    });
-
-    this.firebaseRef = firebaseRef;
   }
 
+  static getStores() {
+    return [ChatStore];
+  }
+
+  static getPropsFromStores() {
+    return ChatStore.getState();
+  }
+
+  static propTypes = {
+    messages: React.PropTypes.object,
+    messagesLoading: React.PropTypes.bool
+  };
+
   render() {
-    const messageNodes = _.values(this.state.messages).map(m => <Message key={m.key} message={m.message} profilePic={m.profilePic} />);
+    const messageNodes = this.props.messagesLoading
+      ? <CircularProgress mode="indeterminate" className="wait-progress" />
+      : _.values(this.props.messages).map(m => <Message key={m.key} message={m} />);
 
     return (
       <Card className="message-list">

@@ -1,3 +1,4 @@
+import * as colors from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
 import ChannelList from './ChannelList.jsx';
 import ChatStore from '../stores/ChatStore';
@@ -28,6 +29,11 @@ class App extends React.Component {
   };
 
   getChildContext() {
+    lightBaseTheme.palette.accent1Color = colors.pink400;
+    lightBaseTheme.palette.primary1Color = colors.blue500;
+    lightBaseTheme.palette.primary2Color = colors.blue700;
+    lightBaseTheme.palette.primary3Color = colors.blue100;
+
     return {
       muiTheme: getMuiTheme(lightBaseTheme)
     };

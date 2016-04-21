@@ -12,5 +12,19 @@
       "author": "Victor Bui",
       "profilePic": "http://res.cloudinary.com/urbandictionary/image/upload/a_exif,c_fit,h_200,w_200/v1417872112/wcca0wzxkbnmstnckkxq.jpg"
     }
+  },
+  "channels": {
+    "flux": {
+      "name": "flux"
+    },
+    "react": {
+      "name": "react"
+    },
+    "firebase": {
+      "name": "firebase"
+    },
+    "webpack": {
+      "name": "webpack"
+    }
   }
 }

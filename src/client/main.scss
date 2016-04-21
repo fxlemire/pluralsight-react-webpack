@@ -12,6 +12,14 @@ body {
 
 .channel-list { flex-grow: 1; }
 
+.login-card {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 50px;
+}
+
+.login-text {text-align: center;}
+
 .message-box {
   max-width: 1200px;
   margin: 30px auto;

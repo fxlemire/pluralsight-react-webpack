@@ -1,5 +1,6 @@
 {
   "ambientDependencies": {
+    "alt": "registry:dt/alt#0.16.10+20160317120654",
     "firebase": "registry:dt/firebase#2.4.1+20160412125105",
     "gulp": "registry:dt/gulp#3.8.0+20160316155526",
     "gulp-debug": "registry:dt/gulp-debug#2.0.1+20160316155526",

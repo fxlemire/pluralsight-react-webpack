@@ -9,7 +9,31 @@ import alt from '../alt';
 @decorate(alt)
 class ChatStore {
   constructor() {
-    this.state = {user: null, messages: null};
+    this.state = {
+      user: null,
+      messages: null,
+      messagesLoading: true
+    };
+  }
+
+  @bind(Actions.channelOpened)
+  channelOpened(selectedChannel) {
+    _(this.state.channels)
+      .values()
+      .each(channel => {
+        channel.selected = false;
+      });
+
+    selectedChannel.selected = true;
+
+    this.setState({channels: this.state.channels, selectedChannel});
+
+    setTimeout(this.getInstance().getMessages, 100); // eslint-disable-line no-magic-numbers
+  }
+
+  @bind(Actions.messagesLoading)
+  messagesLoading() {
+    this.setState({messagesLoading: true});
   }
 
   @bind(Actions.channelsReceived)
@@ -43,7 +67,7 @@ class ChatStore {
         messages[k].key = k;
       });
 
-    this.setState({messages});
+    this.setState({messages, messagesLoading: false});
   }
 
   @bind(Actions.login)

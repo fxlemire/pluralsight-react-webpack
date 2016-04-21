@@ -22,6 +22,7 @@
     "react": "registry:dt/react#0.14.0+20160412154040",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
     "react-global": "registry:dt/react-global#0.14.0+20160316155526",
+    "react-router": "registry:dt/react-router#2.0.0+20160330124659",
     "react-tap-event-plugin": "registry:dt/react-tap-event-plugin#0.0.0+20160226083632",
     "webpack": "registry:dt/webpack#1.12.9+20160321060707",
     "webpack-env": "registry:dt/webpack-env#1.12.2+20160316155526"
@@ -32,6 +33,7 @@
     "del": "registry:npm/del#2.2.0+20160416211512",
     "gulp": "registry:npm/gulp#3.8.0+20160211003958",
     "lodash": "registry:npm/lodash#4.0.0+20160416211519",
+    "react-router": "registry:npm/react-router#2.0.0+20160214194820",
     "sinon": "registry:npm/sinon#1.16.0+20160309002336",
     "sinon-chai": "registry:npm/sinon-chai#2.8.0+20160310030142",
     "webpack": "registry:npm/webpack#1.12.9+20160219013405",

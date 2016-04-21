@@ -1,28 +1,16 @@
 import * as colors from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
-import Chat from './Chat.jsx';
-import ChatStore from '../stores/ChatStore';
-import Login from './Login.jsx';
 import React from 'react';
-import connectToStores from 'alt-utils/lib/connectToStores';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
-@connectToStores
 class App extends React.Component {
   static childContextTypes = {
     muiTheme: React.PropTypes.object
   };
 
-  static getPropsFromStores() {
-    return ChatStore.getState();
-  }
-
-  static getStores() {
-    return [ChatStore];
-  }
-
   static propTypes = {
+    children: React.PropTypes.object,
     user: React.PropTypes.object
   };
 
@@ -38,12 +26,10 @@ class App extends React.Component {
   }
 
   render() {
-    const view = this.props.user ? <Chat /> : <Login />;
-
     return (
       <div>
         <AppBar title="Awesome Chat App" />
-        {view}
+        {this.props.children}
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import Firebase from 'firebase';
 import alt from '../alt';
+import {browserHistory} from 'react-router';
 
 class Actions {
   constructor() {
@@ -17,7 +18,7 @@ class Actions {
     );
   }
 
-  login(args) {
+  login() {
     return dispatch => {
       const firebaseRef = new Firebase('https://pluralsight-react-webpack.firebaseio.com/messages');
 
@@ -27,6 +28,8 @@ class Actions {
         }
 
         dispatch(authData);
+
+        browserHistory.push('/chat');
       });
     };
   }
